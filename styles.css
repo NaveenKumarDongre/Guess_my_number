@@ -16,11 +16,28 @@ body {
 .bg-color {
   /* background-color: #404eed; */
 
-  /* background-color: #00b712; 
-  background-image: linear-gradient(315deg, #00b712 0%, #5aff15 74%); */
   
+
   background-color: #9921e8;
   background-image: linear-gradient(315deg, #9921e8 0%, #5f72be 74%);
+
+
+  
+
+}
+
+.bg-color-win {
+
+  background-color: #00b712; 
+  background-image: linear-gradient(315deg, #00b712 0%, #5aff15 74%);
+
+}
+
+.bg-color-loss{
+
+background-color: #ee9617;
+background-image :linear-gradient(315deg, #ee9617 0%, #fe5858 74%);
+
 }
 
 header {
@@ -42,11 +59,22 @@ nav {
 
 .btn {
   color: #ffffff;
+  font-weight: 600;
   padding: 1rem 2rem;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   background-color: #23272a;
   border: none;
   border-radius: 1rem;
+
+}
+
+.btn:hover {
+  cursor: pointer;
+
+  color: #ffffff;
+
+  background-color: #f5d020;
+  background-image: linear-gradient(315deg, #f5d020 0%, #f53803 74%);
 }
 
 nav p {
@@ -67,7 +95,8 @@ header h1 {
   margin: 0 auto;
   border-radius: 1rem;
   text-align: center;
-  font-size: 3rem;
+  font-size: 4rem;
+  font-weight: 900;
   color: #23272a;
 
   display: flex;
@@ -99,12 +128,14 @@ main {
   padding-left: 2rem;
 }
 
-.left input {
+.guess {
+  text-align: center;
   width: 8rem;
   height: 8rem;
   border: none;
   border-radius: 1rem;
-  font-size: 2rem;
+  font-size: 3rem;
+  font-weight: 800;
   border: 0.3rem solid black;
 }
 
@@ -142,8 +173,22 @@ footer {
   border-top: #23272a 0.5rem solid;
 }
 
+footer p{
+  margin-bottom: 1rem;
+}
+
 footer a {
   color: #ffffff;
+  text-decoration: none;
+  padding: 0.3rem 0.5rem;
+  background-color: #9921e8;
+  border-radius: 1rem;
+}
+
+footer a:hover {
+  
+  background-color: #f5d020;
+  background-image: linear-gradient(315deg, #f5d020 0%, #f53803 74%);
 }
 
 @media (max-width: 45rem) {
@@ -170,8 +215,8 @@ footer a {
   .number {
     width: 4rem;
     height: 4rem;
-    font-size: 1.5rem;
-    margin-bottom: 3rem;
+    font-size: 3rem;
+    /* margin-bottom: 3rem; */
   }
 
   main {
@@ -186,9 +231,10 @@ footer a {
     gap: 2rem;
   }
 
-  .left input {
+  .guess {
     width: 5rem;
     height: 5rem;
+    font-size: 2rem;
   }
 
   .right {
