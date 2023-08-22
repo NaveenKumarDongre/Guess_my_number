@@ -19,6 +19,11 @@ let highestScore = 0;
 document.querySelector(".score").textContent = score;
 document.querySelector(".max_score").textContent = highestScore;
 
+function display_message(message){
+  document.querySelector(".message").textContent = message;
+
+}
+
 document.querySelector(".check").addEventListener("click", function () {
   const guess = Number(document.querySelector(".guess").value);
   console.log(guess, typeof guess);
@@ -26,11 +31,11 @@ document.querySelector(".check").addEventListener("click", function () {
   // When their is no input
 
   if (!guess) {
-    document.querySelector(".message").textContent = "❌ No number entered !";
+    display_message("❌ No number entered !")
 
     // When player wins
   } else if (guess === secretNumber) {
-    document.querySelector(".message").textContent = "🥳 Correct Number!";
+    display_message("🥳 Correct Number!")
     if (score > highestScore) {
       highestScore = score;
       document.querySelector(".max_score").textContent = highestScore;
@@ -46,13 +51,15 @@ document.querySelector(".check").addEventListener("click", function () {
 
     document.querySelector(".number").style.width = "8rem";
     document.querySelector(".number").textContent = secretNumber;
-    //When guess is too high
-  } else if (guess > secretNumber) {
+  }
+  // When guess is wrong
+  else if (guess !== secretNumber) {
     if (score > 1) {
-      document.querySelector(".message").textContent = "📈 Too high guess!";
+      let msg = guess > secretNumber ? "📈 Too high guess!" : "📉 Too low guess!";
+      display_message(msg)
       score--;
     } else {
-      document.querySelector(".message").textContent = "😭 you loose the game!";
+      display_message("😭 you loose the game!")
       const elements = document.querySelectorAll(".bg");
       // Loop through the selected elements and modify the classes
       console.log(elements);
@@ -65,26 +72,10 @@ document.querySelector(".check").addEventListener("click", function () {
     }
   }
 
-  //when guess is too low
-  else {
-    if (score > 1) {
-      document.querySelector(".message").textContent = "📉 Too low guess!";
-      score--;
-    } else {
-      document.querySelector(".message").textContent = "😭 you loose the game!";
-      const elements = document.querySelectorAll(".bg");
-      // Loop through the selected elements and modify the classes
-      console.log(elements);
-      elements.forEach((element) => {
-        element.classList.remove("bg-color"); // Remove the old class
-        element.classList.add("bg-color-loss"); // Add the new class
-      });
-      score = 0;
-    }
-  }
   document.querySelector(".score").textContent = score;
 });
 
+// After clicking on the again button
 document.querySelector(".again").addEventListener("click", function () {
   score = 10;
   document.querySelector(".score").textContent = score;
